@@ -1,0 +1,46 @@
+{
+  "name": "@vha-kbs/fhir",
+  "version": "1.0.0",
+  "description": "Veterans Health Administration, Knowledge Based Systems - FHIR Artifacts and Utilities ",
+  "main": "index.js",
+  "bin": {
+    "vha-kbs-fhir": "./build/bin/vha-kbs-fhir.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/preston/vha-kbs-fhir.git"
+  },
+  "keywords": [
+    "vha",
+    "kbs",
+    "fhir",
+    "cql",
+    "cds",
+    "veterans",
+    "usa",
+    "knowledge",
+    "cpg"
+  ],
+  "author": "Preston Lee",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/preston/vha-kbs-fhir/issues"
+  },
+  "homepage": "https://github.com/preston/vha-kbs-fhir#readme",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "commander": "^12.1.0",
+    "glob": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.2",
+    "nodemon": "^3.1.7",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2"
+  }
+}
