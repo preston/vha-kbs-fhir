@@ -176,6 +176,17 @@
     "standard": "knart"
   },
   {
+    "file": "womens_health_breast_cancer_screening/b53/CDSK_KRprt_SADT_B53BCS.xml",
+    "title": "Women's Health: Breast Cancer Screening Documentation Template",
+    "description": "",
+    "tags": [
+      "B53",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0005AL",
+      "Jira KP-89"
+    ],
+    "standard": "knart"
+  },
+  {
     "file": "womens_health_breast_cancer_screening/b31/CDSK_KRprt_OS_B31BCS.xml",
     "title": "Women's Health: Breast Cancer Screening Order Set",
     "description": "",
@@ -231,17 +242,6 @@
     "standard": "knart"
   },
   {
-    "file": "womens_health_breast_cancer_screening/b53/CDSK_KRprt_SADT_B53BCS.xml",
-    "title": "Women's Health: Breast Cancer Screening Documentation Template",
-    "description": "",
-    "tags": [
-      "B53",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0005AL",
-      "Jira KP-89"
-    ],
-    "standard": "knart"
-  },
-  {
     "file": "primary_care_tobacco_assessment_and_cessation_counseling/o28/CDSK_KRprt_SADT_O28Tobacco.xml",
     "title": "Primary Care: Tobacco Assessment and Cessation Counseling Documentation Template",
     "description": "",
@@ -275,6 +275,28 @@
     "standard": "knart"
   },
   {
+    "file": "primary_care_general_econsult/b47/CDSK_KRprt_CRDT_B47EConsult.xml",
+    "title": "General E-Consult Documentation Template",
+    "description": "",
+    "tags": [
+      "B47",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0005AJ",
+      "Jira KP-63"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "primary_care_failed_visits_and_failed_or_delayed_consults/o7/CDSK_KRprt_ECA_O7FailCon.xml",
+    "title": "Primary Care: Failed or Delayed Consults Rule",
+    "description": "",
+    "tags": [
+      "O7",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0007BA",
+      "Jira KP-882"
+    ],
+    "standard": "knart"
+  },
+  {
     "file": "primary_care_failed_visits_and_failed_or_delayed_consults/o6/CDSK_KRprt_ECA_O6FailVisit.xml",
     "title": "Primary Care: Failed Visits Rule",
     "description": "",
@@ -293,28 +315,6 @@
       "O33",
       "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0009CA",
       "Jira KP-98"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "primary_care_failed_visits_and_failed_or_delayed_consults/o7/CDSK_KRprt_ECA_O7FailCon.xml",
-    "title": "Primary Care: Failed or Delayed Consults Rule",
-    "description": "",
-    "tags": [
-      "O7",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0007BA",
-      "Jira KP-882"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "primary_care_general_econsult/b47/CDSK_KRprt_CRDT_B47EConsult.xml",
-    "title": "General E-Consult Documentation Template",
-    "description": "",
-    "tags": [
-      "B47",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0005AJ",
-      "Jira KP-63"
     ],
     "standard": "knart"
   },
@@ -363,6 +363,39 @@
     "standard": "knart"
   },
   {
+    "file": "neurosurgery_cervical_radiculopathy/b60/CDSK_KRprt_CRCK_B60CervRadi.xml",
+    "title": "Neurosurgery Radiculopathy (Cervical) ",
+    "description": "",
+    "tags": [
+      "B60",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0006AC",
+      "Jira KP-925"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "neurosurgery_cervical_radiculopathy/b39/CDSK_KRprt_CRDT_B39CervRadi.xml",
+    "title": "Neurosurgery: Radiculopathy (Cervical) Documentation Template",
+    "description": "",
+    "tags": [
+      "B39",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0005AL",
+      "Jira KP-917"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "neurosurgery_cervical_radiculopathy/b15/CDSK_KRprt_OS_B15CervRadi.xml",
+    "title": "Neurosurgery: Radiculopathy (Cervical) Order Set",
+    "description": "",
+    "tags": [
+      "B15",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
+      "Jira KP-69"
+    ],
+    "standard": "knart"
+  },
+  {
     "file": "neurosurgery_lumbarthoracic_radiculopathy/b61/CDSK_KRprt_CRCK_B61LTRadi.xml",
     "title": "Neurosurgery Radiculopathy (Lumbar Thoracic) ",
     "description": "",
@@ -396,28 +429,6 @@
     "standard": "knart"
   },
   {
-    "file": "neurosurgery_cervical_radiculopathy/b60/CDSK_KRprt_CRCK_B60CervRadi.xml",
-    "title": "Neurosurgery Radiculopathy (Cervical) ",
-    "description": "",
-    "tags": [
-      "B60",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0006AC",
-      "Jira KP-925"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "neurosurgery_cervical_radiculopathy/b15/CDSK_KRprt_OS_B15CervRadi.xml",
-    "title": "Neurosurgery: Radiculopathy (Cervical) Order Set",
-    "description": "",
-    "tags": [
-      "B15",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
-      "Jira KP-69"
-    ],
-    "standard": "knart"
-  },
-  {
     "file": "neurology_tbi_screening/b62/CDSK_KRprt_CRCK_B62TBI.xml",
     "title": "Neurology: Traumatic Brain Injury (TBI)",
     "description": "",
@@ -425,17 +436,6 @@
       "B62",
       "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0006AC",
       "Jira KP-926"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "neurosurgery_cervical_radiculopathy/b39/CDSK_KRprt_CRDT_B39CervRadi.xml",
-    "title": "Neurosurgery: Radiculopathy (Cervical) Documentation Template",
-    "description": "",
-    "tags": [
-      "B39",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0005AL",
-      "Jira KP-917"
     ],
     "standard": "knart"
   },
@@ -473,6 +473,17 @@
     "standard": "knart"
   },
   {
+    "file": "neurology_tbi_screening/b17/CDSK_KRprt_OS_B17B18B19TBI.xml",
+    "title": "Neurology: Traumatic Brain Injury (TBI) - Polytrauma Interdisciplinary Rehab Clinic Order Set",
+    "description": "",
+    "tags": [
+      "B17B18B19",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AG",
+      "Jira KP-43"
+    ],
+    "standard": "knart"
+  },
+  {
     "file": "mental_health_suicidality/o20/CDSK_KRprt_OS_O20MHPosSRScr.xml",
     "title": "Mental Health: Positive Suicide Risk Screening Order Set",
     "description": "",
@@ -480,17 +491,6 @@
       "O20",
       "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0008BA",
       "Jira KP-87"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "mental_health_ptsd_screening_and_assessment/o37/CDSK_KRprt_SADT_O37PTSDScr_FINAL.xml",
-    "title": "Mental Health: Post-traumatic Stress Disorder (PTSD) Screening and Assessment Documentation Template",
-    "description": "",
-    "tags": [
-      "O37",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0009CA",
-      "Jira KP-102"
     ],
     "standard": "knart"
   },
@@ -506,13 +506,13 @@
     "standard": "knart"
   },
   {
-    "file": "neurology_tbi_screening/b17/CDSK_KRprt_OS_B17B18B19TBI.xml",
-    "title": "Neurology: Traumatic Brain Injury (TBI) - Polytrauma Interdisciplinary Rehab Clinic Order Set",
+    "file": "mental_health_ptsd_screening_and_assessment/o37/CDSK_KRprt_SADT_O37PTSDScr_FINAL.xml",
+    "title": "Mental Health: Post-traumatic Stress Disorder (PTSD) Screening and Assessment Documentation Template",
     "description": "",
     "tags": [
-      "B17B18B19",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AG",
-      "Jira KP-43"
+      "O37",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0009CA",
+      "Jira KP-102"
     ],
     "standard": "knart"
   },
@@ -594,6 +594,17 @@
     "standard": "knart"
   },
   {
+    "file": "mental_health_military_sexual_trauma/b49/CDSK_KRprt_SADT_B49MHMST.xml",
+    "title": "Mental Health: Military Sexual Trauma Documentation Template",
+    "description": "",
+    "tags": [
+      "B49",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0005AJ",
+      "Jira KP-65"
+    ],
+    "standard": "knart"
+  },
+  {
     "file": "mental_health_homelessness/b48/CDSK_KRprt_SADT_B48MHHomeless.xml",
     "title": "Mental Health: Homelessness Documentation Template",
     "description": "",
@@ -649,17 +660,6 @@
     "standard": "knart"
   },
   {
-    "file": "gastroenterology_hepatitis_c/b30/CDSK_KRprt_OS_B30HepCGlecPib.xml",
-    "title": "Gastroenterology: Hepatitis C - Glecaprevir/Pibrentasvir Order Set",
-    "description": "",
-    "tags": [
-      "B30",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AJ",
-      "Jira KP-56"
-    ],
-    "standard": "knart"
-  },
-  {
     "file": "gastroenterology_hepatitis_c/b43/CDSK_KRprt_CRDT_B43HepC.xml",
     "title": "Gastroenterology: Hepatitis C Documentation Template",
     "description": "",
@@ -667,6 +667,17 @@
       "B43",
       "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0005AM",
       "Jira KP-876"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "gastroenterology_hepatitis_c/b30/CDSK_KRprt_OS_B30HepCGlecPib.xml",
+    "title": "Gastroenterology: Hepatitis C - Glecaprevir/Pibrentasvir Order Set",
+    "description": "",
+    "tags": [
+      "B30",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AJ",
+      "Jira KP-56"
     ],
     "standard": "knart"
   },
@@ -682,17 +693,6 @@
     "standard": "knart"
   },
   {
-    "file": "mental_health_military_sexual_trauma/b49/CDSK_KRprt_SADT_B49MHMST.xml",
-    "title": "Mental Health: Military Sexual Trauma Documentation Template",
-    "description": "",
-    "tags": [
-      "B49",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0005AJ",
-      "Jira KP-65"
-    ],
-    "standard": "knart"
-  },
-  {
     "file": "gastroenterology_hepatitis_c/b28/CDSK_KRprt_OS_B28HepCElbGraz.xml",
     "title": "Gastroenterology: Hepatitis C - Elbasvir/Grazoprevir Order Set",
     "description": "",
@@ -700,17 +700,6 @@
       "B28",
       "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AJ",
       "Jira KP-54"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "endocrinology_hypoglycemia/b66/CDSK_KRprt_CRCK_B66Hypogly.xml",
-    "title": "Endocrinology: Hypoglycemia",
-    "description": "",
-    "tags": [
-      "B66",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0006AC",
-      "Jira KP-920"
     ],
     "standard": "knart"
   },
@@ -726,13 +715,13 @@
     "standard": "knart"
   },
   {
-    "file": "endocrinology_hypoglycemia/b33/CDSK_KRprt_OS_B33Hypogly.xml",
-    "title": "Endocrinology: Hypoglycemia Order Set",
+    "file": "endocrinology_hypoglycemia/b66/CDSK_KRprt_CRCK_B66Hypogly.xml",
+    "title": "Endocrinology: Hypoglycemia",
     "description": "",
     "tags": [
-      "B33",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
-      "Jira KP-57"
+      "B66",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0006AC",
+      "Jira KP-920"
     ],
     "standard": "knart"
   },
@@ -748,6 +737,17 @@
     "standard": "knart"
   },
   {
+    "file": "endocrinology_hypoglycemia/b33/CDSK_KRprt_OS_B33Hypogly.xml",
+    "title": "Endocrinology: Hypoglycemia Order Set",
+    "description": "",
+    "tags": [
+      "B33",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
+      "Jira KP-57"
+    ],
+    "standard": "knart"
+  },
+  {
     "file": "endocrinology_hypoglycemia/b3/CDSK_KRprt_ECA_B3Hypogly.xml",
     "title": "Endocrinology: Hypoglycemia Rule",
     "description": "",
@@ -755,6 +755,167 @@
       "B3",
       "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0003AE",
       "Jira KP-31"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "colonoscopy/b63/CDSK_KRprt_CRCK_B63Colos.xml",
+    "title": "GI: Colonoscopy ",
+    "description": "",
+    "tags": [
+      "B63",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0006AC",
+      "Jira KP-926"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "colonoscopy/b42/CDSK_KRprt_CRDT_B42Colos.xml",
+    "title": "Gastroenterology: Colorectal Cancer Risk Documentation Template",
+    "description": "",
+    "tags": [
+      "B42",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0005AK",
+      "Jira KP-875"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "colonoscopy/b28/CDSK_KVRpt_OS_B28HepCElbGraz.xml",
+    "title": "",
+    "description": "",
+    "tags": [],
+    "standard": "knart"
+  },
+  {
+    "file": "colonoscopy/b27/CDSK_KRprt_OS_B27ColosFIT.xml",
+    "title": "Gastroenterology: Colorectal Cancer Risk – Fecal Immunochemical Test (FIT) Order Set",
+    "description": "",
+    "tags": [
+      "B27",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
+      "Jira KP-53"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "colonoscopy/b26/CDSK_KRprt_OS_B26ColosRskScr.xml",
+    "title": "Gastroenterology: Colorectal Cancer Risk - Average risk screening Order Set",
+    "description": "",
+    "tags": [
+      "B26",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
+      "Jira KP-52"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "colonoscopy/b25/CDSK_KRprt_OS_B25ColosOther.xml",
+    "title": "Gastroenterology: Colorectal Cancer Risk - Other issues Order Set",
+    "description": "",
+    "tags": [
+      "B25",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
+      "Jira KP-51"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "colonoscopy/b24/CDSK_KRprt_OS_B24ColosRecBld.xml",
+    "title": "Gastroenterology: Colorectal Cancer Risk – Rectal bleeding, or Positive Screening Test Order Set",
+    "description": "",
+    "tags": [
+      "B24",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
+      "Jira KP-50"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "colonoscopy/b23/CDSK_KRprt_OS_B23ColosIDA.xml",
+    "title": "Gastroenterology: Colorectal Cancer Risk - Iron deficiency Order Set",
+    "description": "",
+    "tags": [
+      "B23",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
+      "Jira KP-49"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "colonoscopy/b22/CDSK_KRprt_OS_B22IBDSurv.xml",
+    "title": "Gastroenterology: Colorectal Cancer Risk– Inflammatory bowel disease Order Set",
+    "description": "",
+    "tags": [
+      "B22",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
+      "Jira KP-48"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "colonoscopy/b21/CDSK_KRprt_OS_B21ColosFH.xml",
+    "title": "Gastroenterology: Colorectal Cancer Risk – Family history of colon cancer, Colon Cancer Syndrome, or Advanced Adenoma Order Set",
+    "description": "",
+    "tags": [
+      "B21",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
+      "Jira KP-47"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "colonoscopy/b20/CDSK_KRprt_OS_B20ColosPH.xml",
+    "title": "Gastroenterology: Colorectal Cancer Risk - Personal history of colon cancer or polyp Order Set",
+    "description": "",
+    "tags": [
+      "B20",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
+      "Jira KP-46"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "colonoscopy/b1/CDSK_KRprt_ECA_B1ColoCanScr.xml",
+    "title": "Gastroenterology: Colorectal Cancer Risk Rule",
+    "description": "",
+    "tags": [
+      "B1",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0003AF",
+      "Jira KP-29"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "cardiology_vte/o25/CDSK_KRprt_OS_O25VTE.xml",
+    "title": "Cardiology: Venous thromboembolism (VTE) Prophylaxis Order Set",
+    "description": "",
+    "tags": [
+      "O25",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0008CA",
+      "Jira KP-92"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "cardiology_inpatient_heparin_anticoagulation_protocol/o27/CDSK_KRprt_OS_O27IPHeparin.xml",
+    "title": "Cardiology: Inpatient Heparin Anticoagulation Protocol Order Set",
+    "description": "",
+    "tags": [
+      "O27",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0008DA",
+      "Jira KP-886"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "cardiology_inpatient_heparin_anticoagulation_protocol/o11/CDSK_KRprt_ECA_O11IPHeparin.xml",
+    "title": "Cardiology: Inpatient Heparin Anticoagulation Protocol Rule",
+    "description": "",
+    "tags": [
+      "O11",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0007CA",
+      "Jira KP-59"
     ],
     "standard": "knart"
   },
@@ -788,28 +949,6 @@
       "B13",
       "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AJ",
       "KP-41"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "cardiology_inpatient_heparin_anticoagulation_protocol/o27/CDSK_KRprt_OS_O27IPHeparin.xml",
-    "title": "Cardiology: Inpatient Heparin Anticoagulation Protocol Order Set",
-    "description": "",
-    "tags": [
-      "O27",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0008DA",
-      "Jira KP-886"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "cardiology_inpatient_heparin_anticoagulation_protocol/o11/CDSK_KRprt_ECA_O11IPHeparin.xml",
-    "title": "Cardiology: Inpatient Heparin Anticoagulation Protocol Rule",
-    "description": "",
-    "tags": [
-      "O11",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0007CA",
-      "Jira KP-59"
     ],
     "standard": "knart"
   },
@@ -880,167 +1019,6 @@
     "standard": "knart"
   },
   {
-    "file": "cardiology_electrophysiology_ep_implanted_cardiac_device/b9/CDSK_KRprt_OS_B9EPICDImp.xml",
-    "title": "Cardiology: Electrophysiology (EP): Primary Prevention Implantable cardioverter-defibrillator (ICD) Implant Order Set",
-    "description": "",
-    "tags": [
-      "B9",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
-      "Jira KP-37"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "cardiology_electrophysiology_ep_implanted_cardiac_device/b11/CDSK_KRprt_OS_B11EPICDCh.xml",
-    "title": "Cardiology: Electrophysiology (EP): Pacemaker/Implantable cardioverter-defibrillator (ICD) Generator Change Order Set",
-    "description": "",
-    "tags": [
-      "B11",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
-      "Jira KP-39"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "cardiology_electrophysiology_ep_implanted_cardiac_device/b10/CDSK_KRprt_OS_B10EPICDFu.xml",
-    "title": "Cardiology: Electrophysiology (EP): Pacemaker/Implantable cardioverter-defibrillator (ICD) Follow Up Order Set",
-    "description": "",
-    "tags": [
-      "B10",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
-      "Jira KP-38"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "colonoscopy/b63/CDSK_KRprt_CRCK_B63Colos.xml",
-    "title": "GI: Colonoscopy ",
-    "description": "",
-    "tags": [
-      "B63",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0006AC",
-      "Jira KP-926"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "colonoscopy/b42/CDSK_KRprt_CRDT_B42Colos.xml",
-    "title": "Gastroenterology: Colorectal Cancer Risk Documentation Template",
-    "description": "",
-    "tags": [
-      "B42",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0005AK",
-      "Jira KP-875"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "colonoscopy/b27/CDSK_KRprt_OS_B27ColosFIT.xml",
-    "title": "Gastroenterology: Colorectal Cancer Risk – Fecal Immunochemical Test (FIT) Order Set",
-    "description": "",
-    "tags": [
-      "B27",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
-      "Jira KP-53"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "colonoscopy/b28/CDSK_KVRpt_OS_B28HepCElbGraz.xml",
-    "title": "",
-    "description": "",
-    "tags": [],
-    "standard": "knart"
-  },
-  {
-    "file": "colonoscopy/b24/CDSK_KRprt_OS_B24ColosRecBld.xml",
-    "title": "Gastroenterology: Colorectal Cancer Risk – Rectal bleeding, or Positive Screening Test Order Set",
-    "description": "",
-    "tags": [
-      "B24",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
-      "Jira KP-50"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "colonoscopy/b25/CDSK_KRprt_OS_B25ColosOther.xml",
-    "title": "Gastroenterology: Colorectal Cancer Risk - Other issues Order Set",
-    "description": "",
-    "tags": [
-      "B25",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
-      "Jira KP-51"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "colonoscopy/b26/CDSK_KRprt_OS_B26ColosRskScr.xml",
-    "title": "Gastroenterology: Colorectal Cancer Risk - Average risk screening Order Set",
-    "description": "",
-    "tags": [
-      "B26",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
-      "Jira KP-52"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "colonoscopy/b22/CDSK_KRprt_OS_B22IBDSurv.xml",
-    "title": "Gastroenterology: Colorectal Cancer Risk– Inflammatory bowel disease Order Set",
-    "description": "",
-    "tags": [
-      "B22",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
-      "Jira KP-48"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "colonoscopy/b21/CDSK_KRprt_OS_B21ColosFH.xml",
-    "title": "Gastroenterology: Colorectal Cancer Risk – Family history of colon cancer, Colon Cancer Syndrome, or Advanced Adenoma Order Set",
-    "description": "",
-    "tags": [
-      "B21",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
-      "Jira KP-47"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "colonoscopy/b23/CDSK_KRprt_OS_B23ColosIDA.xml",
-    "title": "Gastroenterology: Colorectal Cancer Risk - Iron deficiency Order Set",
-    "description": "",
-    "tags": [
-      "B23",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
-      "Jira KP-49"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "colonoscopy/b20/CDSK_KRprt_OS_B20ColosPH.xml",
-    "title": "Gastroenterology: Colorectal Cancer Risk - Personal history of colon cancer or polyp Order Set",
-    "description": "",
-    "tags": [
-      "B20",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
-      "Jira KP-46"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "colonoscopy/b1/CDSK_KRprt_ECA_B1ColoCanScr.xml",
-    "title": "Gastroenterology: Colorectal Cancer Risk Rule",
-    "description": "",
-    "tags": [
-      "B1",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0003AF",
-      "Jira KP-29"
-    ],
-    "standard": "knart"
-  },
-  {
     "file": "cardiology_chest_paincad/b56/CDSK_KRprt_CRCK_B56CPCAD.xml",
     "title": "Cardiology: Chest Pain (CP) / Coronary Artery Disease (CAD)",
     "description": "",
@@ -1096,28 +1074,6 @@
     "standard": "knart"
   },
   {
-    "file": "cardiology_admission_orders_heart_failure/bo24/CDSK_KRprt_OS_O24AdOrdHFail.xml",
-    "title": "Cardiology: Admission Orders - Heart Failure Order Set",
-    "description": "",
-    "tags": [
-      "O24",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0008DA",
-      "Jira KP-904"
-    ],
-    "standard": "knart"
-  },
-  {
-    "file": "cardiology_vte/o25/CDSK_KRprt_OS_O25VTE.xml",
-    "title": "Cardiology: Venous thromboembolism (VTE) Prophylaxis Order Set",
-    "description": "",
-    "tags": [
-      "O25",
-      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0008CA",
-      "Jira KP-92"
-    ],
-    "standard": "knart"
-  },
-  {
     "file": "cardiology_catheterization/o18/CDSK_KRprt_OS_O18PreCardCath.xml",
     "title": "Cardiology: Pre-Cardiac Catheterization Order Set",
     "description": "",
@@ -1125,6 +1081,50 @@
       "O18",
       "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0008BA",
       "Jira KP-60"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "cardiology_electrophysiology_ep_implanted_cardiac_device/b9/CDSK_KRprt_OS_B9EPICDImp.xml",
+    "title": "Cardiology: Electrophysiology (EP): Primary Prevention Implantable cardioverter-defibrillator (ICD) Implant Order Set",
+    "description": "",
+    "tags": [
+      "B9",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
+      "Jira KP-37"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "cardiology_electrophysiology_ep_implanted_cardiac_device/b11/CDSK_KRprt_OS_B11EPICDCh.xml",
+    "title": "Cardiology: Electrophysiology (EP): Pacemaker/Implantable cardioverter-defibrillator (ICD) Generator Change Order Set",
+    "description": "",
+    "tags": [
+      "B11",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
+      "Jira KP-39"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "cardiology_electrophysiology_ep_implanted_cardiac_device/b10/CDSK_KRprt_OS_B10EPICDFu.xml",
+    "title": "Cardiology: Electrophysiology (EP): Pacemaker/Implantable cardioverter-defibrillator (ICD) Follow Up Order Set",
+    "description": "",
+    "tags": [
+      "B10",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AH",
+      "Jira KP-38"
+    ],
+    "standard": "knart"
+  },
+  {
+    "file": "cardiology_admission_orders_heart_failure/bo24/CDSK_KRprt_OS_O24AdOrdHFail.xml",
+    "title": "Cardiology: Admission Orders - Heart Failure Order Set",
+    "description": "",
+    "tags": [
+      "O24",
+      "Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0008DA",
+      "Jira KP-904"
     ],
     "standard": "knart"
   }
