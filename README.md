@@ -21,7 +21,7 @@ If you are primarily interested in accessing the content.. TODO
 
 ## Pre-Built Images
 
-To access a manifest and all content locally using Docker Desktop or other container runtime:
+We have created ready-to-run default content images for your convenience, complete with manifest files. To access the manifest and all content locally using Docker Desktop or other container runtime:
 
 ```sh
 docker run -it -p 8080:80 --rm --name vha-kbs-fhir p3000/vha-kbs-fhir:latest
