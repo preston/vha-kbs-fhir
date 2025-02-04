@@ -1,6 +1,5 @@
 **/.DS_Store
 node_modules/
-/build
 
 # Logs
 logs
@@ -12,5 +11,9 @@ tmp/
 doc/sbom.*
 testcases/
 
-# Build
+# NPM builds
 *.tgz
+
+# Generated files
+/build
+/content/manifest.json

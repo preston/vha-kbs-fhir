@@ -1,6 +1,6 @@
 {
   "name": "@vha-kbs/fhir",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Veterans Health Administration, Knowledge Based Systems - FHIR Artifacts and Utilities ",
   "main": "index.js",
   "bin": {
@@ -10,7 +10,7 @@
     "clean": "rm -rf ./build",
     "compile": "npx tsc",
     "build": "npm run clean && npm run compile",
-    "manifest" : "ts-node src/bin/vha-kbs-fhir.ts metadata-extract content content/metadata.json",
+    "manifest": "ts-node src/bin/vha-kbs-fhir.ts metadata-extract content content/metadata.json",
     "package": "npm run build && npm pack",
     "test": "jest",
     "test-watch": "nodemon --watch '{src,test}/**' --ext 'ts,md,json' --exec 'npx jest'"
@@ -40,7 +40,8 @@
     "axios": "^1.7.9",
     "cheerio": "^1.0.0",
     "commander": "^13.1.0",
-    "glob": "^11.0.1"
+    "glob": "^11.0.1",
+    "jsonpath-plus": "^10.2.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
