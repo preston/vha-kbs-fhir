@@ -25,7 +25,7 @@ cli.command('metadata-extract')
   // .argument('<directory>', 'Directory with Synthea-generate "fhir" resource files')
   .argument('<path_to_output_manifest.json>', 'Output metadata file to create')
   .option('-c, --content <directory>', 'Directory of your own content instead of included files')
-  .option('-d, --dry-run', 'Perform a dry run without uploading any resources')
+  .option('-d, --dry-run', 'Perform a dry run without creating or modifying any resources')
   .option('-v, --verbose', 'Enable verbose logging')
   .action((output, options) => {
     dryRun = options.dryRun;
@@ -57,6 +57,23 @@ cli.command('metadata-extract')
     });
 
   });
+
+cli.command('stack-create')
+  .description('Create a new Stack Controller configuration from a manifest file.')
+  .argument('<manifest.json>', 'Input manifest file to read')
+  .argument('<stack.json>', 'Output stack controller file to create')
+  .option('-d, --dry-run', 'Perform a dry run without creating or modifying any resources')
+  .action((manifestPath, options) => {
+    dryRun = options.dryRun;
+    if (dryRun) {
+      console.log('Dry run enabled. Nothing will be created or modified.');
+    }
+    const sManifestPath = safeFliePathFor(manifestPath);
+    const manifest = JSON.parse(fs.readFileSync(sManifestPath).toString());
+    console.log(manifest);
+  });
+
+program.parse(process.argv);
 
 function generateKnartMetadata(files: string[], relativeTo: string = process.cwd()): ManifestEntry[] {
   const all: ManifestEntry[] = [];
@@ -91,7 +108,7 @@ function generateFhirMetadata(files: string[], relativeTo: string = process.cwd(
     JSONPath.JSONPath({ path: '$..resource.identifier', json }).forEach((ids: any[]) => {
       ids.forEach((id) => {
         meta.identifiers.push({ system: id.system, value: id.value });
-        console.log(id);
+        // console.log(id);
       });
     });
     all.push(meta);
@@ -99,7 +116,6 @@ function generateFhirMetadata(files: string[], relativeTo: string = process.cwd(
   return all;
 }
 
-program.parse(process.argv);
 
 function safeFliePathFor(fileName: string) {
   let safePath = fileName;
