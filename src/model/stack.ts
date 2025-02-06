@@ -10,15 +10,8 @@ export class Stack {
             name: "Stack Controller",
             url: "http://localhost:4204"
         }, {
-            name: "HAPI FHIR (R5 Mode)",
+            name: "HAPI FHIR (R4 Mode)",
             url: "http://localhost:8080"
         }];
-    public data: Array<{ file: string, load: boolean, name: string, description: string, type: string }> = [
-        {
-            "file": "data/hospitalInformation1671557337568.json",
-            "load": true,
-            "name": "Organization Bundle 1",
-            "description": "Synthea-generated Organization records",
-            "type": "Organization Bundle"
-        }];
+    public data: Array<{ file: string, load: boolean, name: string, description: string, type: string }> = [];
 }

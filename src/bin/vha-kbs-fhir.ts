@@ -51,7 +51,10 @@ cli.command('metadata-extract')
         dataFhir = generateFhirMetadata(files, path.dirname(output));
         if (!dryRun) {
           const dataAll = dataKnart.concat(dataFhir);
-          fs.writeFileSync(output, JSON.stringify(dataAll, null, 2));
+          const manifest = new Manifest();
+          manifest.entries = dataAll;
+          manifest.name = 'VHA KBS Content Library & Synthetic Example Data ';
+          fs.writeFileSync(output, JSON.stringify(manifest, null, 2));
           console.log('Wrote', dataAll.length, 'entries to', output);
           console.log(' *', dataKnart.length, 'KNART entries');
           console.log(' *', dataFhir.length, 'FHIR entries');
