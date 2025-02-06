@@ -21,4 +21,4 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 RUN rm -rf *
 
 # Copy only the content directory from the "builder" stage
-COPY --from=builder /build/content .
+COPY --from=builder /build/{data,content} .
