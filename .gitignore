@@ -16,4 +16,5 @@ testcases/
 
 # Generated files
 /build
-/content/manifest.json
+**/stack.json
+**/manifest.json

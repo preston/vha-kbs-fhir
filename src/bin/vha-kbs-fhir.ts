@@ -11,6 +11,9 @@ import JSONPath from 'jsonpath-plus';
 
 import { VhaKbsFhirVersion } from '../version';
 import { ManifestEntry } from '../model/manifest_entry';
+import { Stack } from '../model/stack';
+import { Manifest } from '../model/manifest';
+import { InteroperabilityStandard } from '../model/InteroperabilityStandard';
 
 let dryRun = false;
 let verbose = false
@@ -60,54 +63,68 @@ cli.command('metadata-extract')
 
 cli.command('stack-create')
   .description('Create a new Stack Controller configuration from a manifest file.')
-  .argument('<manifest.json>', 'Input manifest file to read')
-  .argument('<stack.json>', 'Output stack controller file to create')
+  .argument('<path_to_input.manifest.json>', 'Input manifest file to read')
+  .argument('<path_to_output.stack.json>', 'Output stack controller file to create')
   .option('-d, --dry-run', 'Perform a dry run without creating or modifying any resources')
-  .action((manifestPath, options) => {
+  .action((manifestPath, stackPath, options) => {
     dryRun = options.dryRun;
     if (dryRun) {
       console.log('Dry run enabled. Nothing will be created or modified.');
     }
     const sManifestPath = safeFliePathFor(manifestPath);
-    const manifest = JSON.parse(fs.readFileSync(sManifestPath).toString());
-    console.log(manifest);
+    const sStackPath = safeFliePathFor(stackPath);
+    const manifest: Manifest = JSON.parse(fs.readFileSync(sManifestPath).toString());
+    const stack = new Stack();
+    manifest.entries.forEach((entry) => {
+      if (entry.standard == InteroperabilityStandard.FHIR) {
+        stack.data.push({
+          file: entry.file,
+          load: true,
+          name: entry.title,
+          description: entry.description,
+          type: entry.standard,
+        });
+      }
+    });
+    fs.writeFileSync(sStackPath, JSON.stringify(stack, null, 2));
+    // console.log(manifest);
   });
 
 
 cli.command('synthea-upload')
-.description('Upload a directory of Synthea-generated FHIR resources to a FHIR URL using Synthea file naming conventions and loading order.')
-.argument('<directory>', 'Directory with Synthea-generate "fhir" resource files')
-.argument('<url>', 'URL of the FHIR server to upload the resources to')
-.option('-d, --dry-run', 'Perform a dry run without uploading any resources')
-.action((directory, fhirUrl, options) => {
-  dryRun = options.dryRun;
-  if (dryRun) {
-    console.log('Dry run enabled. No resources will be uploaded.');
-  }
-  const sDirectory = safeFliePathFor(directory);
-  console.log(`Uploading Synthea-generated FHIR resources from ${sDirectory} to ${fhirUrl}`);
-  const files = fs.readdirSync(sDirectory).filter(file => path.extname(file).toLowerCase() === '.json');
-  const hospitals: string[] = [];
-  const pratitioners: string[] = [];
-  const patients: string[] = [];
-  files.forEach((file, i) => {
-    if (file.startsWith('hospitalInformation')) {
-      hospitals.push(file);
-    } else if (file.startsWith('practitionerInformation')) {
-      pratitioners.push(file);
-    } else {
-      patients.push(file);
+  .description('Upload a directory of Synthea-generated FHIR resources to a FHIR URL using Synthea file naming conventions and loading order.')
+  .argument('<directory>', 'Directory with Synthea-generate "fhir" resource files')
+  .argument('<url>', 'URL of the FHIR server to upload the resources to')
+  .option('-d, --dry-run', 'Perform a dry run without uploading any resources')
+  .action((directory, fhirUrl, options) => {
+    dryRun = options.dryRun;
+    if (dryRun) {
+      console.log('Dry run enabled. No resources will be uploaded.');
     }
-  });
-  // const sFiles = files.map((file) => path.join(sDirectory, file));
-  uploadResources(hospitals, sDirectory, fhirUrl).then(() => {
-    uploadResources(pratitioners, sDirectory, fhirUrl).then(() => {
-      uploadResources(patients, sDirectory, fhirUrl).then(() => {
-        console.log('Done');
+    const sDirectory = safeFliePathFor(directory);
+    console.log(`Uploading Synthea-generated FHIR resources from ${sDirectory} to ${fhirUrl}`);
+    const files = fs.readdirSync(sDirectory).filter(file => path.extname(file).toLowerCase() === '.json');
+    const hospitals: string[] = [];
+    const pratitioners: string[] = [];
+    const patients: string[] = [];
+    files.forEach((file, i) => {
+      if (file.startsWith('hospitalInformation')) {
+        hospitals.push(file);
+      } else if (file.startsWith('practitionerInformation')) {
+        pratitioners.push(file);
+      } else {
+        patients.push(file);
+      }
+    });
+    // const sFiles = files.map((file) => path.join(sDirectory, file));
+    uploadResources(hospitals, sDirectory, fhirUrl).then(() => {
+      uploadResources(pratitioners, sDirectory, fhirUrl).then(() => {
+        uploadResources(patients, sDirectory, fhirUrl).then(() => {
+          console.log('Done');
+        });
       });
     });
   });
-});
 
 program.parse(process.argv);
 
@@ -118,7 +135,7 @@ function generateKnartMetadata(files: string[], relativeTo: string = process.cwd
     const raw = fs.readFileSync(file);
     const $ = cheerio.loadBuffer(raw);
     const meta = new ManifestEntry();
-    meta.standard = 'knart';
+    meta.standard = InteroperabilityStandard.KNART;
     meta.file = path.relative(relativeTo, file);
     meta.title = $('title').attr('value') || '';
     $('identifiers identifier').each((i, elem) => {
@@ -138,7 +155,7 @@ function generateFhirMetadata(files: string[], relativeTo: string = process.cwd(
     // const $ = cheerio.loadBuffer(raw);
     const json = JSON.parse(raw.toString());
     const meta = new ManifestEntry();
-    meta.standard = 'fhir';
+    meta.standard = InteroperabilityStandard.FHIR;
     meta.file = path.relative(relativeTo, file);
     meta.title = JSONPath.JSONPath({ path: '$.resourceType', json }) as string;
     JSONPath.JSONPath({ path: '$..resource.identifier', json }).forEach((ids: any[]) => {
