@@ -80,13 +80,16 @@ cli.command('stack-create')
     const stack = new Stack();
     manifest.entries.forEach((entry) => {
       if (entry.standard == InteroperabilityStandard.FHIR) {
-        stack.data.push({
+        const e = {
           file: entry.file,
           load: true,
           name: entry.title,
           description: entry.description,
           type: entry.standard,
-        });
+          priority: 10
+        };
+        applyPriority(e, entry);
+        stack.data.push(e);
       }
     });
     fs.writeFileSync(sStackPath, JSON.stringify(stack, null, 2));
@@ -94,38 +97,21 @@ cli.command('stack-create')
   });
 
 
-cli.command('synthea-upload')
-  .description('Upload a directory of Synthea-generated FHIR resources to a FHIR URL using Synthea file naming conventions and loading order.')
-  .argument('<directory>', 'Directory with Synthea-generate "fhir" resource files')
-  .argument('<url>', 'URL of the FHIR server to upload the resources to')
+cli.command('stack-upload')
+  .description('Upload a defined of resources in sequence..')
+  .argument('<path_to.stack.json>', 'Stack controller configuration file to read')
+  // .argument('<url>', 'URL of the FHIR server to upload the resources to')
   .option('-d, --dry-run', 'Perform a dry run without uploading any resources')
-  .action((directory, fhirUrl, options) => {
+  .action((stackPath, fhirUrl, options) => {
     dryRun = options.dryRun;
     if (dryRun) {
       console.log('Dry run enabled. No resources will be uploaded.');
     }
-    const sDirectory = safeFliePathFor(directory);
-    console.log(`Uploading Synthea-generated FHIR resources from ${sDirectory} to ${fhirUrl}`);
-    const files = fs.readdirSync(sDirectory).filter(file => path.extname(file).toLowerCase() === '.json');
-    const hospitals: string[] = [];
-    const pratitioners: string[] = [];
-    const patients: string[] = [];
-    files.forEach((file, i) => {
-      if (file.startsWith('hospitalInformation')) {
-        hospitals.push(file);
-      } else if (file.startsWith('practitionerInformation')) {
-        pratitioners.push(file);
-      } else {
-        patients.push(file);
-      }
-    });
-    // const sFiles = files.map((file) => path.join(sDirectory, file));
-    uploadResources(hospitals, sDirectory, fhirUrl).then(() => {
-      uploadResources(pratitioners, sDirectory, fhirUrl).then(() => {
-        uploadResources(patients, sDirectory, fhirUrl).then(() => {
+    const sStackFilePath = safeFliePathFor(stackPath);
+    const stack: Stack = JSON.parse(fs.readFileSync(sStackFilePath).toString());
+    console.log(`Uploading Synthea-generated FHIR resources from ${sStackFilePath} to ${stack.fhir_base_url}`);
+    uploadResources(stack.data, stack).then(() => {
           console.log('Done');
-        });
-      });
     });
   });
 
@@ -186,44 +172,52 @@ function safeFliePathFor(fileName: string) {
 
 
 
-async function uploadResources(_paths: string[], directory: string, fhirUrl: string) {
-  let next = _paths.shift();
+
+async function uploadResources(data: { file: string; load: boolean; name: string; description: string; type: string; priority: number; }[], stack: Stack) {
+  let next = data.shift();
   if (next) {
-    await uploadResource(next, directory, fhirUrl);
-    if (_paths.length > 0) {
-      await uploadResources(_paths, directory, fhirUrl);
+    await uploadResource(next, stack);
+    if (data.length > 0) {
+      await uploadResources(data, stack);
     }
   }
 }
 
-async function uploadResource(fileName: string, directory: string, fhirUrl: string) {
-  const file = path.join(directory, fileName);
-  const raw = fs.readFileSync(file).toString();
+async function uploadResource(data: { file: string; load: boolean; name: string; description: string; type: string; priority: number; }, stack: Stack) {
+  // const file = path.join(directory, fileName);
+  const raw = fs.readFileSync(data.file).toString();
   const json = JSON.parse(raw) as any;
   // console.log(json);
 
   if (dryRun) {
     return new Promise<void>((resolve, reject) => {
-      console.log(`Dry run: Would have uploaded ${fileName}`);
+      console.log(`Dry run: Would have uploaded ${data.file}`);
       resolve();
-
     });
   } else {
-    return axios.post(fhirUrl, json, {
+    return axios.post(stack.fhir_base_url, json, {
       headers: {
         'Content-Type': 'application/fhir+json',
         'Accept': 'application/fhir+json',
       },
     }).then((response) => {
-      console.log(`[SUCCESS]: ${response.status} ${response.statusText}`, file);
+      console.log(`[SUCCESS]: ${response.status} ${response.statusText}`, data.file);
       // console.log('Response Data:', JSON.stringify(response.data, null, 2));
     }).catch((error) => {
       if (error.response) {
-        console.error(`[FAILURE]: ${error.response.status} ${error.response.statusText}`, file);
+        console.error(`[FAILURE]: ${error.response.status} ${error.response.statusText}`, data.file);
         console.error(JSON.stringify(error.response.data, null, 2));
       } else {
-        console.error(`[ERROR]: ${error.message}`, file);
+        console.error(`[ERROR]: ${error.message}`, data.file);
       }
     });
+  }
+}
+
+function applyPriority(e: { file: string; load: boolean; name: string; description: string; type: InteroperabilityStandard.FHIR; priority: number; }, entry: ManifestEntry) {
+  if (entry.file.match(/hospitalInformation.*\.json/)) {
+    e.priority = 0;
+  } else if (entry.file.match(/patientInformation.*\.json/)) {
+    e.priority = 1;
   }
 }

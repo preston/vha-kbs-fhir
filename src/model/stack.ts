@@ -13,5 +13,5 @@ export class Stack {
             name: "HAPI FHIR (R4 Mode)",
             url: "http://localhost:8080"
         }];
-    public data: Array<{ file: string, load: boolean, name: string, description: string, type: string }> = [];
+    public data: Array<{ file: string, load: boolean, name: string, description: string, type: string, priority: number }> = [];
 }
