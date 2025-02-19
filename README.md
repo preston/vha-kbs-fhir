@@ -40,6 +40,18 @@ docker build -t p3000/vha-kbs-fhir:latest .
 
 # Command-Line Interface (CLI) Utilities
 
+```sh
+# Generate a full manifest of all data and data.
+npx ts-node src/bin/vha-kbs-fhir.ts metadata-extract --content . manifest.json
+
+# Generate a default stack.json for utilities and the Stack Controller application.
+npx ts-node src/bin/vha-kbs-fhir.ts stack-create manifest.json stack.json
+
+# Upload the files in sequence to the embedded FHIR base URL.
+npx ts-node src/bin/vha-kbs-fhir.ts stack-upload stack.json
+```
+
+
 ## Loading CDS resources into a FHIR server
 
 TODO

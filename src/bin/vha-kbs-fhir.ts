@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import fs from 'fs';
-import path from 'path';
+import fs, { Dir, Dirent } from 'fs';
+import path, { dirname } from 'path';
 import { glob } from 'glob';
 
 import { program } from 'commander';
@@ -14,6 +14,8 @@ import { ManifestEntry } from '../model/manifest_entry';
 import { Stack } from '../model/stack';
 import { Manifest } from '../model/manifest';
 import { InteroperabilityStandard } from '../model/InteroperabilityStandard';
+import { FhirConverterR5 } from '../fhir_converter_r5';
+import { Bundle, BundleEntry } from 'fhir/r5';
 
 let dryRun = false;
 let verbose = false
@@ -43,7 +45,7 @@ cli.command('metadata-extract')
     let dataKnart: ManifestEntry[] = [];
     let dataFhir: ManifestEntry[] = [];
 
-    const sDirectory = safeFliePathFor(contentDirectory);
+    const sDirectory = safeFilePathFor(contentDirectory);
     glob(`${sDirectory}/**/*.knart.xml`).then((files) => {
       dataKnart = generateKnartMetadata(files, path.dirname(output));
       // console.log(dataKnart);
@@ -74,8 +76,8 @@ cli.command('stack-create')
     if (dryRun) {
       console.log('Dry run enabled. Nothing will be created or modified.');
     }
-    const sManifestPath = safeFliePathFor(manifestPath);
-    const sStackPath = safeFliePathFor(stackPath);
+    const sManifestPath = safeFilePathFor(manifestPath);
+    const sStackPath = safeFilePathFor(stackPath);
     const manifest: Manifest = JSON.parse(fs.readFileSync(sManifestPath).toString());
     const stack = new Stack();
     manifest.entries.forEach((entry) => {
@@ -107,14 +109,59 @@ cli.command('stack-upload')
     if (dryRun) {
       console.log('Dry run enabled. No resources will be uploaded.');
     }
-    const sStackFilePath = safeFliePathFor(stackPath);
+    const sStackFilePath = safeFilePathFor(stackPath);
     const stack: Stack = JSON.parse(fs.readFileSync(sStackFilePath).toString());
     console.log(`Uploading Synthea-generated FHIR resources from ${sStackFilePath} to ${stack.fhir_base_url}`);
+    const files = stack.data.filter((e) => e.load).sort((a, b) => a.priority - b.priority);
     uploadResources(stack.data, stack).then(() => {
-          console.log('Done');
+      console.log('Done');
     });
   });
 
+cli.command('knart-to-fhir')
+  .description('Converts a KNART documents to a FHIR resource bundles.')
+  .argument('<manifest.json>', 'Input manifest file to read')
+  .argument('<output_directory>', 'Output directory to write FHIR resources to')
+  .option('-d, --dry-run', 'Perform a dry run without creating or modifying any resources')
+  .action((manifestPath, outputDirectory, options) => {
+    dryRun = options.dryRun;
+    if (dryRun) {
+      console.log('Dry run enabled. Nothing will be created or modified.');
+    }
+    const sManifestPath = safeFilePathFor(manifestPath);
+    const sOutputDirectory = safeFilePathFor(outputDirectory);
+    const manifest: Manifest = JSON.parse(fs.readFileSync(sManifestPath).toString());
+    manifest.entries.forEach((entry) => {
+      if (entry.standard == InteroperabilityStandard.KNART) {
+        const sFilePath = safeFilePathFor(entry.file);
+        // console.log(`Processing ${sFilePath}`);
+
+        const raw = fs.readFileSync(sFilePath);
+        const $ = cheerio.loadBuffer(raw);
+        const bundle: Bundle = {
+          resourceType: 'Bundle',
+          type: 'collection',
+          entry: []
+        };
+        const converter = new FhirConverterR5();
+        const resources = converter.knartToFhir($);
+        resources.forEach((resource) => {
+          const entry: BundleEntry = {
+            resource: resource
+          };
+          bundle.entry!.push(entry);
+        });
+        const outputFileName = path.join(sOutputDirectory, entry.file.replace('.knart.xml', '.fhir.json'));
+        if (dryRun) {
+          console.log(`Dry run: Would have written ${outputFileName}`);
+        } else {
+          fs.mkdirSync(path.dirname(outputFileName), { recursive: true });
+          fs.writeFileSync(outputFileName, JSON.stringify(bundle, null, 2));
+          console.log('Wrote', outputFileName);
+        }
+      }
+    });
+  });
 program.parse(process.argv);
 
 function generateKnartMetadata(files: string[], relativeTo: string = process.cwd()): ManifestEntry[] {
@@ -159,7 +206,7 @@ function generateFhirMetadata(files: string[], relativeTo: string = process.cwd(
 }
 
 
-function safeFliePathFor(fileName: string) {
+function safeFilePathFor(fileName: string) {
   let safePath = fileName;
   if (!path.isAbsolute(fileName)) {
     safePath = path.join(process.cwd(), fileName);
@@ -215,9 +262,9 @@ async function uploadResource(data: { file: string; load: boolean; name: string;
 }
 
 function applyPriority(e: { file: string; load: boolean; name: string; description: string; type: InteroperabilityStandard.FHIR; priority: number; }, entry: ManifestEntry) {
-  if (entry.file.match(/hospitalInformation.*\.json/)) {
+  if (entry.file.match(/hospital.*\.json/)) {
     e.priority = 0;
-  } else if (entry.file.match(/patientInformation.*\.json/)) {
+  } else if (entry.file.match(/practitioner.*\.json/)) {
     e.priority = 1;
   }
 }
