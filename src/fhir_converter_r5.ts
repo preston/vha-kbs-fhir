@@ -7,6 +7,7 @@ export class FhirConverterR5 {
 
     public knartToFhir(xml: CheerioAPI): FhirResource[] {
         const resources: FhirResource[] = [];
+        
         // $('entry').each((i, elem) => {
         //   const resource = $(elem).find('resource');
         //   const id = $(elem).find('id').attr('value');
