@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/preston/vha-kbs-fhir#readme",
   "dependencies": {
-    "axios": "^1.7.9",
+    "axios": "^1.8.1",
     "cheerio": "^1.0.0",
     "commander": "^13.1.0",
     "glob": "^11.0.1",
@@ -45,10 +45,10 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.13.4",
+    "@types/node": "^22.13.9",
     "@types/fhir": "^0.0.41",
     "nodemon": "^3.1.9",
-    "ts-jest": "^29.2.5",
+    "ts-jest": "^29.2.6",
     "ts-node": "^10.9.2"
   }
 }
